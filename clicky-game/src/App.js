@@ -11,7 +11,7 @@ import "./App.css";
 class App extends Component {
   // Setting this.state.characters to the characters json array
   state = {
-    characters,
+    characters: characters,
     currentScore:0,
     topScore:0,
     imagesAlreadyClicked:[]
@@ -28,28 +28,64 @@ class App extends Component {
 
   handleImageClick = id => {
     // shuffle(array)
-    var array=this.state.imagesAlreadyClicked
-    console.log(array)
+    const charArray = this.state.imagesAlreadyClicked;
+    console.log("***", this.state.imagesAlreadyClicked);
+    console.log("####",charArray.includes(id));
 
-    for(var i=0;i<array.length;i++){
-      if(id===array[i]){
-        console.log("wrong answer")
-      } else{
-        
-      }
+    if(charArray.includes(id)){
+      this.endGame();
     }
-    this.setState({
-      currentScore:this.state.currentScore+1
-    })
-    this.state.imagesAlreadyClicked.push(id)
+    else{
+      this.state.imagesAlreadyClicked.push(id)
+      this.setState({
+        currentScore:this.state.currentScore+1
+      });
+    }
+    
   }
 
+
+
+  endGame(){
+    // check if currentScore is larger than topScore
+    
+    if(this.state.currentScore > this.state.topScore){
+      let score = this.state.currentScore
+      this.setState({
+        topScore: score,
+        currentScore: 0,
+        imagesAlreadyClicked: []
+      })
+    }
+    // take the current characters array and reorder
+    
+  }
+
+  shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
   // Map over this.state.characters and render a DisneyChar component for each character object
   render() {
     return (
       <div>
         <NavBar
         currentScore={this.state.currentScore}
+        topScore={this.state.topScore}
         />
       <Wrapper>
         

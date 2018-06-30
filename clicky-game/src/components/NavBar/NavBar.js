@@ -6,8 +6,10 @@ const NavBar = props => (
         <div className="nav-title">
             <h1>Click an image to begin!</h1>
             <a className="nav-restart" href="/">Restart</a>
-            <div className="score" >| Top Score: {props.top}</div>
+            <div className="scores">
             <div className="score" >Current Score: {props.currentScore}</div>
+            <div className="score" > | Top Score: {props.topScore}</div>
+            </div>
         </div>
     </div>
 )
