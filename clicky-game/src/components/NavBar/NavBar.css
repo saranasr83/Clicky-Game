@@ -26,3 +26,9 @@
     text-align: center;
     margin-right: 36px;
 }
+.green-text {
+    color: green;
+}
+.red-text {
+    color:red;
+}
