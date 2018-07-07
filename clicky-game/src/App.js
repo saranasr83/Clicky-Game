@@ -17,15 +17,8 @@ class App extends Component {
     imagesAlreadyClicked: [],
     status: "Click an image to begin!"
   };
-  //function to shuffle
-  // function shuffle(array) {
+  
 
-  // }
-
-  //function to end the game
-  // function endGame(){
-
-  // }
 
   handleImageClick = id => {
     var that=this
@@ -68,6 +61,7 @@ class App extends Component {
       }, 500)
     }
     this.endGame();
+    this.shuffle(characters);
   }
 
 
