@@ -1,8 +1,7 @@
 # Clicky-Game
 rhis game is so fun. When you click on each character your score will increase, but there is a rule! If you've already clicked on the character, you will lose the game. Good Luck!
 
-[Go to Game]
-(https://immense-shore-88890.herokuapp.com/)
+[Go to Game](https://immense-shore-88890.herokuapp.com/)
 
 
 ### Prerequisites
